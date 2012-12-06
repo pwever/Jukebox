@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Jukebox</title>
+	<link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" charset="utf-8">
+	<script src="/js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<% if defined? note then %>
+			<p class="note"><%= note %></p>
+			<% end %>
+			<% if defined? error_string then %>
+			<p class="error"><%= error_string %></p>
+			<% end %>
+		
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<p>Start playing from:</p>
+
+<ul>
+	<li><a href="/seek/yesterday">Yesterday</a></li>
+	<li><a href="/seek/today">Today</a></li>
+	<li><a href="/seek/4 hours ago">4 hours ago</a></li>
+	<li><a href="/seek/2 hours ago">2 hours ago</a></li>
+	<li><a href="/seek/1 hour ago">1 hour ago</a></li>
+</ul>
+<p>This track was uploaded <%= @upload_time.to_s %>.</p>
+
+<audio id="player" src="/audio/<%= @sound_file %>" controls autoplay></audio>
+
+<div id="debug">Debugging</div>
+
+<div><a href="/play/<%= @file_time %>">Skip</a></div>
+	
+<script>
+	$(document).ready(function() {
+		// Connect to the audio tag and
+		// reload the page when the audio is done
+		$("#player").bind("ended", function(evt) {
+			document.location.href = "/play/<%= @file_time %>";
+		});
+		$("#player").bind("timeupdate", function(evt) {
+			var s = "";
+			for (var key in evt) {
+				s += key + " = " + evt[key] + "<br>";
+			}
+			$("#debug").text(evt['timeStamp']);
+		});
+	});
+</script>

@@ -1,0 +1,5 @@
+#EXTM3U
+
+<% tracks.each do |track| %>
+http://jukebox.design.nokia.com/audio/<%= File.basename(track) %>
+<% end %>

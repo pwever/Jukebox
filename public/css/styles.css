@@ -1,0 +1,43 @@
+
+body {
+	margin: 0;
+	padding: 1em;
+	background-color: ;
+	background: #2C488A;
+	background-image: url(/office.jpg);
+	background-position: center;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+}
+
+.container > .content {
+	display: table;
+	width: 14.5em;
+	margin: 20% auto;
+	padding: 1em;
+	font-size: 0.76em;
+	background-color: white;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #666;	
+}
+
+.note {
+	color: green;
+}
+.error {
+	color: red;
+}
+
+input {
+	width: 16em;
+}
+
+
+#queue_length {
+	font-size: 4em;
+}
+

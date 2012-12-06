@@ -1,0 +1,36 @@
+
+<p><span id="queue_length"><%= queue %></span> items in queue.</p>
+
+<form id="uploadform" action="/" method="post" enctype="multipart/form-data">
+	<input id="fileupload" type="file" name="files[]" multiple>
+	<input type="submit" value="Upload &uarr;">
+</form>
+
+<div id="results"><p>Drag files into this window to add them to the Jukebox.</p></div>
+<script src="/js/vendor/jquery.ui.widget.js"></script>
+<script src="/js/jquery.iframe-transport.js"></script>
+<script src="/js/jquery.fileupload.js"></script>
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        url: '/',
+        done: function (e, data) {
+            $.each(data.result, function (index, file) {
+                $('<p/>').text('"' + file.name + '" uploaded.').appendTo($("#results"));
+            });
+        }
+    });
+});
+
+$(document).ready(function() {
+	$("#uploadform").hide();
+	//$("#uploadform").bind("submit", function(evt) {
+	//	var submit_button = $("#uploadform input[type=submit]");
+	//	submit_button.val("uploading...");
+	//	submit_button.attr("disabled", true);
+	//});
+});
+
+</script>
+

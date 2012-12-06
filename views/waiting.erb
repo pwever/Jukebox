@@ -1,0 +1,32 @@
+
+<p>Start playing from:</p>
+
+<ul>
+	<li><a href="/seek/yesterday">Yesterday</a></li>
+	<li><a href="/seek/today">Today</a></li>
+	<li><a href="/seek/4 hours ago">4 hours ago</a></li>
+	<li><a href="/seek/2 hours ago">2 hours ago</a></li>
+	<li><a href="/seek/1 hour ago">1 hour ago</a></li>
+</ul>
+<p>Retrying in <span id="count_down">60 seconds</span>.</p>
+<p><a href="?">Retry now</a></p>
+
+<script>
+$(document).ready(function() {
+	// reload page after 60 seconds
+	var secs = 60;
+	
+	function decrease_counter() {
+		secs -= 1;
+		if (secs==-2) {
+			window.location.reload();
+		}
+		if (secs>=0) {
+			var str = secs + " seconds";
+			$("#count_down").text(str)
+		}
+	}
+	
+	setInterval(decrease_counter, 1000);
+});
+</script>
